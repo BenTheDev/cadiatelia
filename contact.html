@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cadi Atelia</title>
+    <meta name="description" content="Get in touch with Cadi Atelia for your architecture and construction projects.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: #dc3545;
+            background-color: #fff5f5;
+        }
+
+        .submit-btn {
+            background-color: #d4af37;
+            color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: transparent;
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background-color: #d4f1d4;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border-left: 4px solid #28a745;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-icon {
+            font-size: 2rem;
+            color: #d4af37;
+            flex-shrink: 0;
+            width: 50px;
+            text-align: center;
+        }
+
+        .contact-info-text h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-text p {
+            color: #555;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <img src="public/logo.png" alt="Cadi Atelia Logo" class="logo" width="150" height="70">
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 6rem 2rem; text-align: center;">
+        <h1>Get In Touch</h1>
+        <p style="color: #d4af37; font-size: 1.2rem;">We'd love to hear from you and discuss your project</p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="page-content" style="max-width: 1200px; margin: 0 auto; padding: 5rem 2rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <!-- Contact Form -->
+            <div>
+                <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Send Us a Message</h2>
+                
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you! Your message has been sent successfully. We'll be in touch soon.
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectType">Project Type *</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select a project type</option>
+                            <option value="residential">Residential Design</option>
+                            <option value="commercial">Commercial Design</option>
+                            <option value="interior">Interior Design</option>
+                            <option value="renovation">Renovation & Restoration</option>
+                            <option value="consulting">Consulting Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <h2 style="color: #1a1a1a; margin-bottom: 2rem;">Contact Information</h2>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">📍</div>
+                    <div class="contact-info-text">
+                        <h4>Office Address</h4>
+                        <p>123 Design Avenue<br>Architecture City, AC 12345<br>United States</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">📞</div>
+                    <div class="contact-info-text">
+                        <h4>Phone</h4>
+                        <p>Main: +1 (555) 123-4567<br>Fax: +1 (555) 123-4568</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">✉️</div>
+                    <div class="contact-info-text">
+                        <h4>Email</h4>
+                        <p>hello@cadiatelia.com<br>projects@cadiatelia.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">🕐</div>
+                    <div class="contact-info-text">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <!-- Quick Services -->
+                <div style="background-color: #f5f5f5; padding: 2rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #d4af37;">
+                    <h4 style="color: #1a1a1a; margin-bottom: 1rem;">Quick Response Services</h4>
+                    <ul style="list-style: none; color: #555; font-size: 0.9rem;">
+                        <li style="padding: 0.4rem 0;">✓ Free Initial Consultation (30 min)</li>
+                        <li style="padding: 0.4rem 0;">✓ Design Feasibility Studies</li>
+                        <li style="padding: 0.4rem 0;">✓ Budget Estimation</li>
+                        <li style="padding: 0.4rem 0;">✓ Project Timeline Planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div style="background-color: #f5f5f5; padding: 4rem; border-radius: 8px; margin-top: 5rem;">
+            <h2 style="text-align: center; color: #1a1a1a; margin-bottom: 3rem;">Why Work With Us?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">⭐</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Proven Excellence</h4>
+                    <p style="color: #555; font-size: 0.9rem;">25+ years of award-winning designs and successful projects</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">👥</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Expert Team</h4>
+                    <p style="color: #555; font-size: 0.9rem;">50+ talented architects, designers, and engineers</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">🎨</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Custom Solutions</h4>
+                    <p style="color: #555; font-size: 0.9rem;">Tailored designs that reflect your unique vision</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">⏱️</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Timely Delivery</h4>
+                    <p style="color: #555; font-size: 0.9rem;">Projects completed on schedule and within budget</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">🔒</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Quality Assured</h4>
+                    <p style="color: #555; font-size: 0.9rem;">Rigorous standards ensure excellence at every step</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="color: #1a1a1a; margin-bottom: 0.5rem;">Partnership Focused</h4>
+                    <p style="color: #555; font-size: 0.9rem;">We're committed to your success and satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Cadi Atelia</h4>
+                <p>Luxury architecture and construction services for the most discerning clients</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: hello@cadiatelia.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Design Avenue, Architecture City, AC 12345</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cadi Atelia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form handling
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate form
+            if (!validateForm('contactForm')) {
+                alert('Please fill in all required fields correctly.');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            // Log the form data (in production, send to server)
+            console.log('[v0] Contact form submitted:', data);
+
+            // Show success message
+            successMessage.classList.add('show');
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
